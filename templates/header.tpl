@@ -10,7 +10,7 @@
     <title>3D Print</title>
 </head>
     <body>
-        <nav class="navbar bg-light fixed-top">
+        <nav class="navbar " style="background-color: #c0fac5;">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">3D Print</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
@@ -30,7 +30,7 @@
                     <a class="nav-link" href="admin">Administrar</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Categorias
                     </a>
                     <ul class="dropdown-menu">
