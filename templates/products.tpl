@@ -5,8 +5,7 @@
         <img src='{$product->img}' class='card-img-top img-thumbnail img-fluid' alt='...'>
         <div class='card-body'>
               <h5 class='card-title'>{$product->name}</h5>
-              <p class='card-text'>{$product->description}</p>
-              <p class='card-text'>{$product->price}</p>
+              <p class='card-text'>Precio: ${$product->price}</p>
               <a href='detalles/{$product->id}' class='btn btn-primary'>ver mas</a>
         </div>
 </div>

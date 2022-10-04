@@ -3,6 +3,8 @@ require_once './Model/productModel.php';
 require_once './View/productView.php';
 require_once './View/view404.php';
 
+
+
 class productController{
     private $model;
     private $view;
@@ -27,6 +29,11 @@ class productController{
         else
         $this->view404->show404();
     }
+
+    //public function addProduct(){
+    //    $this->model->addProduct("");
+    //}
+
 
     
 }

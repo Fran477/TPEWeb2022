@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.2.1, created on 2022-10-03 18:18:36
+/* Smarty version 4.2.1, created on 2022-10-04 17:26:23
   from 'C:\xampp\htdocs\TPEWeb2022\templates\products.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.2.1',
-  'unifunc' => 'content_633b0b5cd00548_85066179',
+  'unifunc' => 'content_633c509f7f13c4_90351047',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '0205293c921159b057ea4b6b12ab9b1957379533' => 
     array (
       0 => 'C:\\xampp\\htdocs\\TPEWeb2022\\templates\\products.tpl',
-      1 => 1664813914,
+      1 => 1664897179,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_633b0b5cd00548_85066179 (Smarty_Internal_Template $_smarty_tpl) {
+function content_633c509f7f13c4_90351047 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <div class='container row row-cols-auto align-items-center justify-content-center'>
 <?php
@@ -35,9 +35,7 @@ $_smarty_tpl->tpl_vars['product']->do_else = false;
         <div class='card-body'>
               <h5 class='card-title'><?php echo $_smarty_tpl->tpl_vars['product']->value->name;?>
 </h5>
-              <p class='card-text'><?php echo $_smarty_tpl->tpl_vars['product']->value->description;?>
-</p>
-              <p class='card-text'><?php echo $_smarty_tpl->tpl_vars['product']->value->price;?>
+              <p class='card-text'>Precio: $<?php echo $_smarty_tpl->tpl_vars['product']->value->price;?>
 </p>
               <a href='detalles/<?php echo $_smarty_tpl->tpl_vars['product']->value->id;?>
 ' class='btn btn-primary'>ver mas</a>

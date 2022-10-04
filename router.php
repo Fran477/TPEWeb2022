@@ -2,6 +2,7 @@
 require_once './Controller/productController.php';
 require_once './Controller/categoryController.php';
 require_once './View/view404.php';
+require_once './Controller/adminController.php';
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -15,8 +16,10 @@ $params = explode('/', $action);
 
 $productController = new productController();
 $categoryController = new categoryController();
-$categoryController->showListCategories();
 $view404 = new view404();
+$adminController = new adminController();
+
+$categoryController->showListCategories();
 
 // tabla de ruteo
 switch ($params[0]) {
@@ -28,6 +31,9 @@ switch ($params[0]) {
     case 'detalles': 
         
         $productController->showDetail($params[1]);
+    break;
+    case 'admin':
+        $adminController->showAdmin();
     break;
     default:
         $view404->show404();

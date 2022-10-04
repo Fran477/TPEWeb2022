@@ -5,9 +5,10 @@
     <ul class="list-group list-group-flush">
         <li class="list-group-item text-center">Nombre: {$productDetail[0]->name}</li>
         <li class="list-group-item text-center">Descripcion: {$productDetail[0]->description}</li>
+        <li class="list-group-item text-center">Tipo de Filamento: {$productDetail[0]->type_filament}</li>
         <li class="list-group-item text-center">Stock disponible: {$productDetail[0]->stock}</li>
         <li class="list-group-item text-center">Precio: ${$productDetail[0]->price}</li>
-        <li class="list-group-item text-center"><img class="img-producto" src={$productDetail[0]->img}></li>  
+        <li class="list-group-item text-center"><img class="img-thumbnail" src={$productDetail[0]->img}></li>  
     </ul>
 <div>
 

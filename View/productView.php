@@ -20,4 +20,10 @@
   
         }
 
+        function formAddProduct($categories){
+            $this->smarty->assign('categories', $categories);
+            $this->smarty->display('templates/formAdd.tpl');
+
+        }
+
     }
