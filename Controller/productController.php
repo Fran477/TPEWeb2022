@@ -16,6 +16,7 @@ class productController{
     }
 
     public function showHome(){
+
         $products = $this->model->getProducts();
         $this->view->showHome($products);
     }

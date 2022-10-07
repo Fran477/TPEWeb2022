@@ -1,3 +1,4 @@
+{{include file="header.tpl"}}
 <body>
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="text-center row">

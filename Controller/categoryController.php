@@ -11,16 +11,17 @@ class categoryController{
         $this->view = new categoryView();
     }
 
-    public function showListCategories(){
+    public function showCategories(){
         $categories = $this->model->getCategories();
-        $this->view->showListCategories($categories);
+        $this->view->showCategories($categories);
     }
     
     
-    public function showDetailCategory($id){
-        $categoryDetail = $this->model->getCategory($id);
-        $this->view->showDetail($categoryDetail);
+    public function showCategory($name){
+        $category = $this->model->getCategory($name);
+        $productsByCategory = $this->model->getProductsByCategory($name);
+        $this->view->showCategory($category, $productsByCategory);
     }
 
-    
+
 }

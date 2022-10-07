@@ -15,15 +15,19 @@
         }
 
         function showDetail($productDetail){
+
             $this->smarty->assign('productDetail', $productDetail);
             $this->smarty->display('templates/details.tpl');
   
         }
 
         function formAddProduct($categories){
+
             $this->smarty->assign('categories', $categories);
             $this->smarty->display('templates/formAdd.tpl');
 
         }
+
+        
 
     }

@@ -18,12 +18,22 @@ class categoryModel{
 
     function getCategory($id){
             
-        $query = $this->db->prepare("SELECT * FROM product WHERE id=?");
+        $query = $this->db->prepare("SELECT * FROM category WHERE id=?");
         $query->execute(array($id));
-        $productDetail = $query->fetchAll(PDO::FETCH_OBJ);
+        $category = $query->fetchAll(PDO::FETCH_OBJ);
 
-        return $productDetail;
+        return $category;
     }
+
+    public function getProductsByCategory($id){
+        $query = $this->db->prepare("SELECT * FROM product WHERE id_category=?");
+        $query->execute(array($id));
+        $productsByCategory = $query->fetchAll(PDO::FETCH_OBJ);
+        
+        return $productsByCategory;
+    
+    }
+    
 
 
 

@@ -8,14 +8,16 @@
             $this->smarty = new Smarty();
         }
         
-        function showListCategories($categories){
+        function showCategories($categories){
             $this->smarty->assign('categories', $categories);
-            $this->smarty->display('templates/header.tpl');
+            $this->smarty->display('templates/categories.tpl');
         }
 
-        function showDetail($productDetail){
-            $this->smarty->assign('productDetail', $productDetail);
-            $this->smarty->display('templates/details.tpl');
+        function showCategory($category, $productsByCategory){
+            $this->smarty->assign('category', $category);
+            $this->smarty->assign('productsByCategory',  $productsByCategory);
+            $this->smarty->display('templates/category.tpl');
+            var_dump($productsByCategory);
         }
 
     }

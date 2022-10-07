@@ -1,4 +1,4 @@
-
+{{include file="header.tpl"}}
 
 <figure class="text-center"><h1 class="display-6">Detalles del producto seleccionado</h1></figure>
     <div class="div-editar">

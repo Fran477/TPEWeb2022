@@ -10,7 +10,7 @@ class productsModel{
 
     function getProducts(){
             
-        $query = $this->db->prepare("SELECT * FROM product");
+        $query = $this->db->prepare("SELECT * FROM product ");
         $query->execute();
         $products = $query->fetchAll(PDO::FETCH_OBJ); 
         return $products;
@@ -23,6 +23,11 @@ class productsModel{
         $productDetail = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $productDetail;
+    }
+
+    function addProduct($name,$price,$type_filament,$stock, $img, $description, $id_category){
+        $query = $this->db->prepare("INSERT INTO product(name,price,type_filament,stock,img,description,id_category) VALUES (?,?,?,?,?,?,?)");
+        $query->execute(array($name,$price,$type_filament,$stock, $img, $description, $id_category));
     }
 
 
