@@ -8,7 +8,7 @@
             {$error}
     </div>
 {/if}
-    <form action="addProduct" method="POST" class="my-4">
+    <form action="addProduct" method="POST" enctype="multipart/form-data" class="my-4">
         <div class="row">
             <div class="col-9">
                 <div class="form-group">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="form-group">
                     <label>Imagen</label>
-                    <input name="img" type="text" class="form-control">
+                    <input name="img" type="file" class="form-control">
                 </div>
                 <div class="form-group"> 
                     <label>Categoria</label>

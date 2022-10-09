@@ -26,14 +26,22 @@ class productsModel{
     }
 
     function addProduct($name,$price,$type_filament,$stock, $img, $description, $id_category){
+        $pathImg = $this->uploadImage($img);
         $query = $this->db->prepare("INSERT INTO product(name,price,type_filament,stock,img,description,id_category) VALUES (?,?,?,?,?,?,?)");
-        $query->execute(array($name,$price,$type_filament,$stock, $img, $description, $id_category));
+        $query->execute(array($name,$price,$type_filament,$stock, $pathImg, $description, $id_category));
     }
 
     function deleteProduct($id){
         $query = $this->db->prepare("DELETE FROM product WHERE id=?");
         $query->execute(array($id));
     }
+
+    private function uploadImage($image){
+        $target = 'img/' . uniqid() . '.jpg';
+        move_uploaded_file($image, $target);
+        return $target;
+    }
+
 
 
 }

@@ -1,4 +1,5 @@
-<figure class="text-center"><h1 class="display-6">Productos baratos</h1></figure>
+<figure class="text-center"><h1 class="display-6">Menos de $2000</h1></figure>
+<div class="container justify-content-center" style="width:90%;">
 <div class='container row row-cols-auto justify-content-center'>
 {foreach from=$products item=$product}
       {{if $product->price<2000}}
@@ -14,8 +15,10 @@
 {/foreach}
 <div class="w-100 d-none d-md-block"></div>
 </div>
+</div>
 
 <figure class="text-center"><h1 class="display-6">Todos los productos</h1></figure>
+<div class="container justify-content-center" style="width:90%;">
 <div class='container row row-cols-auto justify-content-center'>
 {foreach from=$products item=$product}
             <div class='card col' style='width: 15rem; margin:5px;'>
@@ -28,4 +31,5 @@
     </div> 
 {/foreach}
 <div class="w-100 d-none d-md-block"></div>
+</div>
 </div>

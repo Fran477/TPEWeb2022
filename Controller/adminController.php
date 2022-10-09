@@ -34,9 +34,10 @@ class adminController{
     public function addProduct(){
        
         $this->authHelper->checkloggedIn();
-        if(is_numeric($_POST['price']) && is_numeric($_POST['stock']) && !empty($_POST['name']) && !empty($_POST['type_filament']) && !empty($_POST['img']) && !empty($_POST['description']) && !empty($_POST['id_category'])){           
+        if(is_numeric($_POST['price']) && is_numeric($_POST['stock']) && !empty($_POST['name']) && !empty($_POST['type_filament'])  && !empty($_POST['description']) && !empty($_POST['id_category'] && ($_FILES['img']['type'] == "image/jpg" || $_FILES['img']['type'] == "image/jpeg" 
+        || $_FILES['img']['type'] == "image/png" ))){           
             
-            $this->model->addProduct($_POST['name'],  $_POST['price'], $_POST['type_filament'] ,$_POST['stock'], $_POST['img'], $_POST['description'], $_POST['id_category']); 
+            $this->model->addProduct($_POST['name'],  $_POST['price'], $_POST['type_filament'] ,$_POST['stock'], $_FILES['img']['tmp_name'], $_POST['description'], $_POST['id_category']); 
             header("Location: " . BASE_URL . "admin");
         }
         else{
