@@ -36,7 +36,11 @@
                     <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
                   </div>
                 </form>
-
+                {if $decline != null}
+                <div class="alert alert-danger" role="alert">
+                {$decline}
+                </div>
+                {/if}
               </div>
             </div>
           </div>

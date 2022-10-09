@@ -8,7 +8,7 @@
         <li class="list-group-item text-center">Tipo de Filamento: {$productDetail[0]->type_filament}</li>
         <li class="list-group-item text-center">Stock disponible: {$productDetail[0]->stock}</li>
         <li class="list-group-item text-center">Precio: ${$productDetail[0]->price}</li>
-        <li class="list-group-item text-center"><img class="img-thumbnail" src={$productDetail[0]->img}></li>  
+        <li class="list-group-item text-center"><img class="img-thumbnail" width=40% src={$productDetail[0]->img}></li>  
     </ul>
 <div>
 

@@ -16,14 +16,15 @@ class productController{
     }
 
     public function showHome(){
-
+        session_start();
         $products = $this->model->getProducts();
         $this->view->showHome($products);
+        var_dump($_SESSION);
     }
     
     
     public function showDetail($id){
-
+        session_start();
         $productDetail = $this->model->getProduct($id);
         if(!empty($productDetail))
         $this->view->showDetail($productDetail);

@@ -20,11 +20,11 @@ class adminController{
         $this->authHelper = new authHelper();
     }
     
-    public function showAdmin(){
+    public function showAdmin($error = null){
 
         $this->authHelper->checkloggedIn();
         $categories = $this->modelCategory->getCategories();
-        $this->view->formAddProduct($categories);
+        $this->view->admin($categories, $error);
     }
 
     public function addProduct(){
@@ -34,10 +34,25 @@ class adminController{
             header("Location: " . BASE_URL . "admin");
         }
         else{
-            $this->view404->show404(); 
+            $this->showAdmin("Se ingreso un dato no valido o ocurrio un error al cargar los datos."); 
         }
         
     }
+
+
+    public function addCategory(){
+        if(!empty($_POST['name']) && !empty($_POST['description'])){           
+            
+            $this->modelCategory->addCategory($_POST['name'], $_POST['description']); 
+            header("Location: " . BASE_URL . "admin");
+        }
+        else{
+            $this->showAdmin("Se ingreso un dato no valido o ocurrio un error al cargar los datos."); 
+        }
+        
+    }
+
+
 
     
 

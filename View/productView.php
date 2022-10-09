@@ -21,10 +21,11 @@
   
         }
 
-        function formAddProduct($categories){
+        function admin($categories, $error){
 
             $this->smarty->assign('categories', $categories);
-            $this->smarty->display('templates/formAdd.tpl');
+            $this->smarty->assign('error', $error);
+            $this->smarty->display('templates/admin.tpl');
 
         }
 

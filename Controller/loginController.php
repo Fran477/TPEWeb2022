@@ -5,20 +5,20 @@
         private $model;
         private $view;
 
-        function __construct(){
+        public function __construct(){
             
             
             $this->model = new userModel();
             $this->view = new loginView();}
 
-        function loginUser(){
+        public function loginUser(){
             
             $this->view->loginUser();
         }
 
         
         
-        function verify(){
+        public function verify(){
             
             if (!empty($_POST['name']) && !empty($_POST['password'])) {
             
@@ -28,25 +28,28 @@
                 // Obtengo el usuario de la base de datos
                 $user = $this->model->getUser($name);
                     
-                    // Si el usuario existe y las contraseñas coinciden
-                    if ($name && password_verify($password, $user->password)) {
+               
+                    if ($user && password_verify($password, $user->password)) {
                         session_start();
 
                         $_SESSION["name"] = $name;
 
-                        $this->view->showHome();
+                        header("Location: " . BASE_URL);
                     }
                     else {
                         $this->view->loginUser('Tus datos son incorrectos, vuelve a intentarlo');
+
                     }
-                }
+
+            }
+
         }
 
-        function logout(){
-            
+        public function logout(){
             session_start();
             session_destroy();
-            $this->view->loginUser("Adios :)");}
+            header("Location: " . BASE_URL . "home");
+        }
 
 
 }

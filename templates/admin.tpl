@@ -3,6 +3,11 @@
 <figure class="text-center"><h1 class="display-6">Agregar un producto a la base de datos</h1></figure>
 
 <div class='container align-items-center justify-content-center'>
+{if $error != null}
+    <div class="alert alert-danger" role="alert">
+            {$error}
+    </div>
+{/if}
     <form action="addProduct" method="POST" class="my-4">
         <div class="row">
             <div class="col-9">
@@ -49,19 +54,24 @@
 
 
 
+<div class='container align-items-center justify-content-center'>
+    <figure class="text-center"><h1 class="display-6">Agregar una categora</h1></figure>
+    <form action="addCategory" method="POST" class="my-4">
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Descripcion</label>
+            <input type="text" name="description" class="form-control" id="description">
+        </div>
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
+</div>
 
-<figure class="text-center"><h1 class="display-6">Agregar una categora</h1></figure>
-<form action="addCategory" method="POST" class="my-4">
-    <div class="mb-3">
-        <label class="form-label">Nombre</label>
-        <input type="text" class="form-control" name="name" id="name" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3">
-        <label class="form-label">Descripcion</label>
-        <input type="text" name="description" class="form-control" id="description">
-    </div>
-    <button type="submit" class="btn btn-primary">Guardar</button>
-</form>
+
+{include file="categoriesAdmin.tpl"}
+
 
 
 {{include file="footer.tpl"}}

@@ -15,42 +15,52 @@ if (!empty($_GET['action'])) {
 // parsea la accion Ej: dev/juan --> ['dev', juan]
 $params = explode('/', $action);
 
-$productController = new productController();
-$categoryController = new categoryController();
-$view404 = new view404();
-$adminController = new adminController();
-$loginController = new loginController();
-
 
 // tabla de ruteo
 switch ($params[0]) {
     //<------ HOME -------->
     case 'home':
+        $productController = new productController();
         $productController->showHome();
         break;
     //<------ redirecciona a los detalles de cada producto  -------->
     case 'detalles': 
+        $productController = new productController();
         $productController->showDetail($params[1]);
     break;
     case 'admin':
+        $adminController = new adminController();
         $adminController->showAdmin();
     break;
     case 'addProduct':
+        $adminController = new adminController();
         $adminController->addProduct();
     break;
     case 'login':
+        $loginController = new loginController();
         $loginController->loginUser();
     break;
     case 'loginVerify':
+        $loginController = new loginController();
         $loginController->verify();
     break;
+    case 'logout':
+        $loginController = new loginController();
+        $loginController->logout();
+    break;
     case 'categoria':
+        $categoryController = new categoryController();
         if(isset($params[1]))
         $categoryController->showCategory($params[1]);
         else 
         $categoryController->showCategories();
     break;
+    case 'addCategory':
+        $adminController = new adminController();
+        $adminController->addCategory();
+    break;
     default:
+        $view404 = new view404();
         $view404->show404();
     break;
 }

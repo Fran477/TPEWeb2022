@@ -34,6 +34,10 @@ class categoryModel{
     
     }
     
+    function addCategory($name, $description){
+        $query = $this->db->prepare("INSERT INTO category(name,description) VALUES (?,?)");
+        $query->execute(array($name, $description));
+    }
 
 
 

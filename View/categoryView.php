@@ -14,10 +14,11 @@
         }
 
         function showCategory($category, $productsByCategory){
+            
             $this->smarty->assign('category', $category);
             $this->smarty->assign('productsByCategory',  $productsByCategory);
             $this->smarty->display('templates/category.tpl');
-            var_dump($productsByCategory);
+
         }
 
     }
