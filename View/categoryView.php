@@ -21,4 +21,9 @@
 
         }
 
+        public function categoriesAdmin($error){
+            $this->smarty->assign('error', $error);
+            $this->smarty->display('templates/categoriesAdmin.tpl');
+        }
+
     }

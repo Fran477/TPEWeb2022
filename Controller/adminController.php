@@ -4,6 +4,7 @@ require_once './View/productView.php';
 require_once './View/view404.php';
 require_once './Model/categoryModel.php';
 require_once './Helpers/authHelper.php';
+require_once './View/categoryView.php';
 
 class adminController{
     private $model;
@@ -11,6 +12,7 @@ class adminController{
     private $modelCategory;
     private $authHelper;
     private $view404;
+    private $viewCategory;
 
     public function __construct(){
         $this->model = new productsModel();
@@ -18,16 +20,20 @@ class adminController{
         $this->view404 = new view404();
         $this->modelCategory = new categoryModel();
         $this->authHelper = new authHelper();
+        $this->viewCategory = new categoryView();
     }
     
     public function showAdmin($error = null){
 
         $this->authHelper->checkloggedIn();
         $categories = $this->modelCategory->getCategories();
-        $this->view->admin($categories, $error);
+        $products= $this->model->getProducts();
+        $this->view->admin($products, $categories, $error);
     }
 
     public function addProduct(){
+       
+        $this->authHelper->checkloggedIn();
         if(is_numeric($_POST['price']) && is_numeric($_POST['stock']) && !empty($_POST['name']) && !empty($_POST['type_filament']) && !empty($_POST['img']) && !empty($_POST['description']) && !empty($_POST['id_category'])){           
             
             $this->model->addProduct($_POST['name'],  $_POST['price'], $_POST['type_filament'] ,$_POST['stock'], $_POST['img'], $_POST['description'], $_POST['id_category']); 
@@ -41,6 +47,8 @@ class adminController{
 
 
     public function addCategory(){
+       
+        $this->authHelper->checkloggedIn();
         if(!empty($_POST['name']) && !empty($_POST['description'])){           
             
             $this->modelCategory->addCategory($_POST['name'], $_POST['description']); 
@@ -52,10 +60,25 @@ class adminController{
         
     }
 
+    public function deleteCategory($id){
+        
+        $this->authHelper->checkloggedIn();
+        if(($this->modelCategory->getProductsByCategory($id)) == null){
+            $this->modelCategory->deleteCategory($id);
+            header("Location: " . BASE_URL . "admin");
+        }
+        else{
+            
+            $this->showAdmin("Se intento eliminar una categoria con productos asociados");
+        }
+        
+    }
+    public function deleteProduct($id){
+        
+        $this->authHelper->checkloggedIn();
+        $this->model->deleteProduct($id);
+        header("Location: " . BASE_URL . "admin");
+        
+    }
+}          
 
-
-    
-
-
-
-}

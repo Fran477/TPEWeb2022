@@ -1,5 +1,6 @@
 {include file= 'templates/header.tpl'}
 
+
    <figure class="text-center"><h1 class="display-6">Categorias</h1></figure>
     <table class="table">
     <thead>
@@ -21,4 +22,6 @@
     {/foreach}
     </tbody>
 </table>
+
+
 {include file= 'templates/footer.tpl'}

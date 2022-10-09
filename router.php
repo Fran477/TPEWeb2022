@@ -36,6 +36,10 @@ switch ($params[0]) {
         $adminController = new adminController();
         $adminController->addProduct();
     break;
+    case 'deleteProduct':
+        $adminController = new adminController();
+        $adminController->deleteProduct($params[1]);
+    break;
     case 'login':
         $loginController = new loginController();
         $loginController->loginUser();
@@ -58,6 +62,11 @@ switch ($params[0]) {
     case 'addCategory':
         $adminController = new adminController();
         $adminController->addCategory();
+    break;
+    case 'deleteCategory':
+        $id = $params[1];
+        $adminController = new adminController();
+        $adminController->deleteCategory($id);
     break;
     default:
         $view404 = new view404();

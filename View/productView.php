@@ -21,8 +21,8 @@
   
         }
 
-        function admin($categories, $error){
-
+        function admin($products, $categories, $error){
+            $this->smarty->assign('products', $products);
             $this->smarty->assign('categories', $categories);
             $this->smarty->assign('error', $error);
             $this->smarty->display('templates/admin.tpl');

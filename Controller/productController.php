@@ -19,7 +19,6 @@ class productController{
         session_start();
         $products = $this->model->getProducts();
         $this->view->showHome($products);
-        var_dump($_SESSION);
     }
     
     

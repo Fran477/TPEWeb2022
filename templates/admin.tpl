@@ -72,6 +72,6 @@
 
 {include file="categoriesAdmin.tpl"}
 
-
+{include file="productsAdmin.tpl"}
 
 {{include file="footer.tpl"}}

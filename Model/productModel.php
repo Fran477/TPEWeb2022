@@ -30,6 +30,10 @@ class productsModel{
         $query->execute(array($name,$price,$type_filament,$stock, $img, $description, $id_category));
     }
 
+    function deleteProduct($id){
+        $query = $this->db->prepare("DELETE FROM product WHERE id=?");
+        $query->execute(array($id));
+    }
 
 
 }
