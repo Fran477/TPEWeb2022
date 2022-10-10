@@ -81,5 +81,48 @@ class adminController{
         header("Location: " . BASE_URL . "admin");
         
     }
+
+
+    public function formAdminCategory($id , $error = null){
+        $this->authHelper->checkloggedIn();
+        $category = $this->modelCategory->getCategory($id);
+        $this->viewCategory->formAdminCategory($category, $error);
+        
+    }
+
+    public function editCategory($id){
+        $this->authHelper->checkloggedIn();
+        if(!empty($_POST['name']) && !empty($_POST['description'])){           
+            
+            $this->modelCategory->editCategory($_POST['name'], $_POST['description'], $_POST['id']); 
+            header("Location: " . BASE_URL . "admin");
+        }
+        else{
+            $this->formAdminCategory($id,"Se ingreso un dato no valido o ocurrio un error al cargar los datos."); 
+        }
+    }
+
+    public function formAdminProduct($id , $error = null){
+        $this->authHelper->checkloggedIn();
+        $product = $this->model->getProduct($id);
+        $categories = $this->modelCategory->getCategories();
+        $this->view->formAdminProduct($categories,$product, $error);
+        
+    }
+
+    public function editProduct($id){
+        $this->authHelper->checkloggedIn();
+        if(is_numeric($_POST['price']) && is_numeric($_POST['stock']) && !empty($_POST['name']) && !empty($_POST['type_filament'])  && !empty($_POST['description']) && !empty($_POST['id_category']) && !empty($_POST['img'])){           
+            
+            $this->model->editProduct($_POST['name'],  $_POST['price'], $_POST['type_filament'] ,$_POST['stock'], $_POST['img'], $_POST['description'], $_POST['id_category'], $_POST['id']); 
+            header("Location: " . BASE_URL . "admin");
+        }
+        else{
+            $this->formAdminProduct($id,"Se ingreso un dato no valido o ocurrio un error al cargar los datos."); 
+        }
+    }
+
+
+
 }          
 

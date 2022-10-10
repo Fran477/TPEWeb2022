@@ -1,6 +1,7 @@
 {include file= 'templates/header.tpl'}
 
-
+<div class="container justify-content-center" style="width:90%;">
+<div class='container row row-cols-auto justify-content-center'>
    <figure class="text-center"><h1 class="display-6">Categorias</h1></figure>
     <table class="table">
     <thead>
@@ -22,6 +23,7 @@
     {/foreach}
     </tbody>
 </table>
-
+</div>
+</div>
 
 {include file= 'templates/footer.tpl'}

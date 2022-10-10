@@ -41,7 +41,10 @@ class productsModel{
         move_uploaded_file($image, $target);
         return $target;
     }
-
+    public function editProduct($name,$price, $type_filament,$stock, $img, $description, $id_category, $id){
+        $query = $this->db->prepare("UPDATE product SET name=?,  price=?, type_filament=?, stock=?, img=?, description=?, id_category=?  WHERE id=?");
+        $query->execute(array($name,$price, $type_filament,$stock, $img, $description, $id_category, $id));
+    }
 
 
 }

@@ -28,7 +28,12 @@
             $this->smarty->display('templates/admin.tpl');
 
         }
-
+        public function formAdminProduct($categories, $product, $error){
+            $this->smarty->assign('categories', $categories);
+            $this->smarty->assign('error', $error);
+            $this->smarty->assign('product', $product);
+            $this->smarty->display('templates/formEditProduct.tpl');
+        }
         
 
     }

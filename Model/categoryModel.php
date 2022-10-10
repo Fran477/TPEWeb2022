@@ -44,5 +44,10 @@ class categoryModel{
         $query->execute(array($id));
     }
 
+    public function editCategory($name,$description, $id){
+        $query = $this->db->prepare("UPDATE category SET name=?,  description=? WHERE id=?");
+        $query->execute(array($name,$description, $id));
+    }
+
 
 }

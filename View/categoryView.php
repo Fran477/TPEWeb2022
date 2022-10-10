@@ -26,4 +26,10 @@
             $this->smarty->display('templates/categoriesAdmin.tpl');
         }
 
+        public function formAdminCategory($category, $error){
+            $this->smarty->assign('error', $error);
+            $this->smarty->assign('category', $category);
+            $this->smarty->display('templates/formEditCategory.tpl');
+        }
+
     }

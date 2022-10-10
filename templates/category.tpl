@@ -1,5 +1,5 @@
 {{include file="header.tpl"}}
-
+<div class="container justify-content-center" style="width:90%;">
 <figure class="text-center"><h1 class="display-6">{$category[0]->name}</h1></figure>
 <ul class="list-group list-group-flush">
     {foreach from=$productsByCategory item=$product}
@@ -13,7 +13,7 @@
        
     {/foreach}
 </ul>
-{include file= 'templates/footer.tpl'}
+</div>
 
 
 {{include file="footer.tpl"}}

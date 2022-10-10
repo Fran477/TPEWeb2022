@@ -40,6 +40,16 @@ switch ($params[0]) {
         $adminController = new adminController();
         $adminController->deleteProduct($params[1]);
     break;
+    case 'adminProduct':
+        $id = $params[1];
+        $adminController = new adminController();
+        $adminController->formAdminProduct($id);
+    break;
+    case 'editProduct':
+        $id = $params[1];
+        $adminController = new adminController();
+        $adminController->editProduct($id);
+    break;
     case 'login':
         $loginController = new loginController();
         $loginController->loginUser();
@@ -67,6 +77,17 @@ switch ($params[0]) {
         $id = $params[1];
         $adminController = new adminController();
         $adminController->deleteCategory($id);
+    break;
+    
+    case 'adminCategory':
+        $id = $params[1];
+        $adminController = new adminController();
+        $adminController->formAdminCategory($id);
+    break;
+    case 'editCategory':
+        $id = $params[1];
+        $adminController = new adminController();
+        $adminController->editCategory($id);
     break;
     default:
         $view404 = new view404();
